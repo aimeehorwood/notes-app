@@ -1,4 +1,4 @@
-const NotesModel = require("./src/notesModel");
+const NotesModel = require("./notesModel");
 
 describe("NotesModel", () => {
   it("returns an empty list when no notes added", () => {
