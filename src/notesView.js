@@ -17,6 +17,10 @@ class NotesView {
   }
 
   displayNotes() {
+    document.querySelectorAll(".note").forEach((element) => {
+      element.remove();
+    });
+
     const notes = this.model.getNotes();
 
     // For each note, create and append a new element on the main container
@@ -24,6 +28,8 @@ class NotesView {
       const noteEl = document.createElement("div");
       noteEl.textContent = note;
       noteEl.className = "note";
+
+      document.querySelector("#add-note-input").value = "";
       this.mainContainerEl.append(noteEl);
     });
   }
