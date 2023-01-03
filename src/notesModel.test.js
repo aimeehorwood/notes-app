@@ -9,17 +9,16 @@ describe("NotesModel", () => {
 
   it("can add two notes", () => {
     const notes = new NotesModel();
-    notes.addNote('Buy milk');
-    notes.addNote('Go to the gym');
-    expect(notes.getNotes()).toEqual(['Buy milk', 'Go to the gym']);
+    notes.addNote("Buy milk");
+    notes.addNote("Go to the gym");
+    expect(notes.getNotes()).toEqual(["Buy milk", "Go to the gym"]);
   });
 
   it("can add reset notes through reset method", () => {
     const notes = new NotesModel();
-    notes.addNote('Buy milk');
-    notes.addNote('Go to the gym');
-    notes.reset()
+    notes.addNote("Buy milk");
+    notes.addNote("Go to the gym");
+    notes.reset();
     expect(notes.getNotes()).toEqual([]);
   });
-
 });

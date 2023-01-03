@@ -12,7 +12,7 @@ class NotesModel {
   }
 
   reset() {
-    this.notes = []
+    this.notes = [];
   }
 }
 
