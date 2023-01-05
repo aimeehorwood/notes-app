@@ -31,6 +31,7 @@ describe("Notes view", () => {
   });
 
   
+
   it('clear the list of previous notes before displaying', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
   

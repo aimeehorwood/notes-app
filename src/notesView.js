@@ -4,18 +4,21 @@ class NotesView {
   constructor(model, client) {
     this.client = client;
     this.model = model;
-    this.mainContainerEl = document.querySelector("#main-container");
+    this.mainContainerEl = document.querySelector('#main-container');
 
-    this.addButtonEl = document.querySelector("#add-note-btn");
+    this.addButtonEl = document.querySelector('#add-note-btn');
 
-    this.addButtonEl.addEventListener("click", () => {
-      const newNote = document.querySelector("#add-note-input").value;
+    this.addButtonEl.addEventListener('click', () => {
+      const newNote = document.querySelector('#add-note-input').value;
       this.addNewNote(newNote);
+      this.client.createNote(newNote);
 
-      const userInput = document.querySelector("#add-note-input");
-      userInput.value = "";
+      const userInput = document.querySelector('#add-note-input')
+      userInput.value = '';
     });
   }
+
+
 
   addNewNote(newNote) {
     this.model.addNote(newNote);
@@ -30,7 +33,7 @@ class NotesView {
     const notes = this.model.getNotes();
 
     // For each note, create and append a new element on the main container
-    notes.forEach((note) => {
+    notes.forEach(note => {
       const noteEl = document.createElement("div");
       noteEl.textContent = note;
       noteEl.className = "note";
@@ -46,6 +49,7 @@ class NotesView {
       this.displayNotes();
     });
   }
+
 }
 
 module.exports = NotesView;
