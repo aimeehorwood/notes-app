@@ -7,15 +7,8 @@ const client = new NotesClient();
 const model = new NotesModel();
 const view = new NotesView(model,client);
 
+// console.log(model.getNotes());
 
-view.displayNotes();
+view.displayNotesFromApi();
 
 
-
-
-// fetch from notes server 
-//fetch('http://localhost:3000/notes')
-// .then((response) => response.json())
-// .then((data) => {
-//     console.log(data)
-// });
