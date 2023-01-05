@@ -58,9 +58,45 @@ describe("Notes view", () => {
 
     view.displayNotesFromApi()
     // console.log(document.body.innerHTML);
-    console.log(document.querySelector('div.note'));
+    //console.log(document.querySelector('div.note'));
   
     done()
   });
+
+  // it("displays an error when notes cannot be fetched", (done) => { 
+  //   const model = new NotesModel();
+  //   const mockedClient = new NotesClient();
+  //   const view = new NotesView(model, mockedClient);
+
+  //   mockedClient.loadNotes.mockImplementation((callback, errorFunction = () => {
+  //     const data = displayError()
+  //     return callback(data)
+  //   }), () => {}
+  //   )
+
+  //   view.displayNotesFromApi()
+  //   console.log(document.querySelector('p'));
+  
+  //   expect(document.querySelectorAll("p")[0].textContent).toThrow(
+  //     "Oops, something went wrong!")
+  //   done()
+
+  // });
+
+  xit("displays an error when notes cannot be fetched", (done) => { 
+    const model = new NotesModel();
+    const mockedClient = new NotesClient();
+    const view = new NotesView(model, mockedClient);
+
+    mockedClient.loadNotes.mockImplementation(callback = () => {}, errorFunction = () => errorFunction());
+
+    view.displayNotesFromApi()
+    expect(document.querySelectorAll('p').length).toEqual(1);
+    // expect(document.querySelectorAll("p")[0].textContent).toBe("Oops, something went wrong!")
+    done()
+
+  });
+
+
 
 });
