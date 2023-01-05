@@ -3,7 +3,7 @@
  */
 
  jest.mock('./notesClient')
-
+ 
 const fs = require("fs");
 const NotesClient = require('./notesClient');
 const NotesModel = require("./notesModel");
@@ -13,8 +13,9 @@ describe("Notes view", () => {
   it("adds a new note", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
 
+    const client = new NotesClient();
     const model = new NotesModel();
-    const view = new NotesView(model);
+    const view = new NotesView(model,client);
 
     // fill the input
     const input = document.querySelector("#add-note-input");
@@ -29,8 +30,6 @@ describe("Notes view", () => {
       "Test note"
     );
   });
-
-  
 
   it('clear the list of previous notes before displaying', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
@@ -61,6 +60,7 @@ describe("Notes view", () => {
     // console.log(document.body.innerHTML);
     console.log(document.querySelector('div.note'));
   
-    done()});
+    done()
+  });
 
 });

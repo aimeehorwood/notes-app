@@ -9,6 +9,7 @@ class NotesView {
     this.addButtonEl = document.querySelector('#add-note-btn');
 
     this.addButtonEl.addEventListener('click', () => {
+      console.log("button clicked");
       const newNote = document.querySelector('#add-note-input').value;
       this.addNewNote(newNote);
       this.client.createNote(newNote);
@@ -21,11 +22,13 @@ class NotesView {
 
 
   addNewNote(newNote) {
+    console.log("addNewNote called");
     this.model.addNote(newNote);
     this.displayNotes();
   }
 
   displayNotes() {
+    console.log("displaynotes called");
     document.querySelectorAll(".note").forEach((element) => {
       element.remove();
     });
