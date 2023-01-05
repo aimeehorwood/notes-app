@@ -20,10 +20,11 @@ class NotesClient {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((response) => console.log(response));
-      
+      .then((response) => console.log(response))
+      .catch(() => {
+        return error ();
+    });
   }
-  
 
 }
 

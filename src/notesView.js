@@ -20,7 +20,6 @@ class NotesView {
   }
 
   addNewNote(newNote) {
-    console.log("addNewNote called");
     this.model.addNote(newNote);
     this.displayNotes();
   }
